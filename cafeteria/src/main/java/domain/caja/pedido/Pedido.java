@@ -16,6 +16,10 @@ public class Pedido {
         return precioTotalProductos + precioTotalPromociones;
     }
 
+    public void renovarStock() {
+        // TODO: renovarStock()
+    }
+
     public void consumirStock(){
         productos.forEach(p -> p.getProducto().consumirStock(p.getProducto(), p.getCantidad()));
         promociones.forEach(p -> p.getPromocion().consumirStock(p.getPromocion(), p.getCantidad()));

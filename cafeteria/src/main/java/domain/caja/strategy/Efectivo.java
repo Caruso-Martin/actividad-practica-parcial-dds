@@ -12,5 +12,6 @@ public class Efectivo implements CobrarStrategy {
         caja.setPedido(null);
 
         //TODO: renovarStock()
+
     }
 }

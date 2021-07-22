@@ -4,7 +4,7 @@ import domain.menu.Producto;
 
 public class Insuficiente implements Estado {
     @Override
-    public void renovarStock(Producto producto){
+    public void renovarStock(Producto producto) {
         int stockActual = producto.getCantidadDisponible();
         producto.setCantidadDisponible(stockActual * 2);
 

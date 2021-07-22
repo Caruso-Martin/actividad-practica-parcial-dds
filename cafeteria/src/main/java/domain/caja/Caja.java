@@ -2,7 +2,6 @@ package domain.caja;
 
 import domain.caja.pedido.Pedido;
 import domain.caja.strategy.CobrarStrategy;
-import domain.menu.Promocion;
 
 public class Caja {
     private Pedido pedido;

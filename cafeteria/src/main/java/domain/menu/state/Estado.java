@@ -1,6 +1,5 @@
 package domain.menu.state;
 
-import domain.Tienda;
 import domain.menu.Producto;
 
 public interface Estado {

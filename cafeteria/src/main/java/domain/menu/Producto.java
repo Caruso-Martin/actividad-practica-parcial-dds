@@ -1,8 +1,7 @@
 package domain.menu;
 
-import domain.Tienda;
 import domain.menu.state.Estado;
-import domain.menu.state.Suficiente;
+import domain.menu.state.Vacio;
 
 public class Producto {
     private int id;
@@ -12,12 +11,12 @@ public class Producto {
     private int cantidadDisponible;
     private Estado estadoStock;
 
-    public void renovarStock(Producto producto) throws Exception {
-        estadoStock.renovarStock(this);
-    }
-
     public boolean estaDisponible() {
         return cantidadDisponible > 0;
+    }
+
+    public void renovarStock() throws Exception {
+        estadoStock.renovarStock(this); // TODO: Modificar, la Excepcion causa problemas.
     }
 
     public void consumirStock(Producto producto, int cantidad){
@@ -30,8 +29,8 @@ public class Producto {
         this.id = id;
         this.nombre = nombre;
         this.precio = precio;
-        this.cantidadDisponible = 25;
-        this.estadoStock = new Suficiente();
+        this.cantidadDisponible = 0;
+        this.estadoStock = new Vacio();
     }
 
     /* Getters y Setters */

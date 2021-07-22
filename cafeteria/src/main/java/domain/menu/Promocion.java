@@ -15,6 +15,16 @@ public class Promocion extends Producto {
         return productos.stream().allMatch(p -> p.estaDisponible());
     }
 
+    public void renovarStock(Promocion promocion) {
+        promocion.getProductos().stream().forEach(p -> {
+            try {
+                p.renovarStock();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        });
+    }
+
     public void consumirStock(Promocion promocion, int cantidad){
         promocion.getProductos().forEach(p -> p.restarCantidadDisponible(cantidad));
     }

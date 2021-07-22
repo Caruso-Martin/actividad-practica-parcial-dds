@@ -32,6 +32,7 @@
             <artifactId>junit</artifactId>
             <version>4.12</version>
         </dependency>
+        <!-- API REST: Retrofit -->
         <dependency>
             <groupId>com.squareup.retrofit2</groupId>
             <artifactId>retrofit</artifactId>
@@ -43,6 +44,5 @@
             <artifactId>converter-gson</artifactId>
             <version>2.9.0</version>
         </dependency>
-    </dependencies>
-
+</dependencies>
 </project>
