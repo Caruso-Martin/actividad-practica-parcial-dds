@@ -1,6 +1,5 @@
 package domain.menu.state;
 
-import domain.Tienda;
 import domain.menu.Producto;
 
 public class Insuficiente implements Estado {

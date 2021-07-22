@@ -1,58 +1,32 @@
 package domain.caja;
 
+import domain.caja.pedido.Pedido;
 import domain.caja.strategy.CobrarStrategy;
-import domain.menu.Producto;
 import domain.menu.Promocion;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class Caja {
-    private List<Producto> productos = new ArrayList<Producto>();
-    private List<Promocion> promociones = new ArrayList<Promocion>();
+    private Pedido pedido;
     private Moneda moneda;
     private CobrarStrategy metodoPago;
     private double montoRecaudado;
 
-    public void cobrar(Caja caja){
-        metodoPago.cobrar(this);
+    public void cobrarPedido(Caja caja){
+        metodoPago.cobrarPedido(this);
     }
 
-    public double calcularPrecioTotal(){
-        double precioTotalProductos = productos.stream().mapToDouble(p -> p.getPrecio()).sum();
-        double precioTotalPromociones = promociones.stream().mapToDouble(p -> p.getPrecio()).sum();
-
-        return precioTotalProductos + precioTotalPromociones;
+    // TODO: Mirar como implemetar API
+    public void mostrarMontoEnMonedaExtranjera(){
+        System.out.println("A");
     }
-
-    //TODO: RESTAR "cantidadDisponible" DE UN PRODUCTO
-
-    //TODO: CAMBIO DE MONEDA
 
     /* Getters y Setters */
 
-    public List<Producto> getProductos() {
-        return productos;
+    public Pedido getPedido() {
+        return pedido;
     }
 
-    public void setProductos(List<Producto> productos) {
-        this.productos = productos;
-    }
-
-    public void addProducto(Producto producto) {
-        this.productos.add(producto);
-    }
-
-    public List<Promocion> getPromociones() {
-        return promociones;
-    }
-
-    public void setPromociones(List<Promocion> promociones) {
-        this.promociones = promociones;
-    }
-
-    public void addPromocion(Promocion promocion) {
-        this.promociones.add(promocion);
+    public void setPedido(Pedido pedido) {
+        this.pedido = pedido;
     }
 
     public Moneda getMoneda() {
@@ -79,7 +53,7 @@ public class Caja {
         this.montoRecaudado = montoRecaudado;
     }
 
-    public void sumarMontoRecaudado(double montoRecaudado) {
+    public void agregarMontoRecaudado(double montoRecaudado) {
         this.montoRecaudado += montoRecaudado;
     }
 }

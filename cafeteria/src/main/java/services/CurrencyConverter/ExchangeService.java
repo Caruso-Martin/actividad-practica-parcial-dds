@@ -22,6 +22,16 @@ public final class ExchangeService {
         return  responseExchange.body();
     }
 
+    public double convertirADolares(double montoAConvertir) throws IOException {
+        Exchange exchange = this.exchange("ARS_USD");
+        return Double.parseDouble(exchange.ARS_USD) * montoAConvertir;
+    }
+
+    public double convertirAEuros(double montoAConvertir) throws IOException {
+        Exchange exchange = this.exchange("ARS_EUR");
+        return Double.parseDouble(exchange.ARS_EUR) * montoAConvertir;
+    }
+
     /* Constructor */
 
     public ExchangeService() {

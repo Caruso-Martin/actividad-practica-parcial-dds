@@ -14,7 +14,7 @@ public class Menu {
     public Menu(List<Producto> productos, List<Promocion> promociones) {
         this.productos = productos;
         this.promociones = promociones;
-    }
+    }                       // Patron Singleton
 
     /* Getters y Setters */
 
@@ -23,7 +23,7 @@ public class Menu {
             instancia = new Menu(productos, promociones);
         }
         return instancia;
-    }
+    }   // Patron Singleton
 
     public List<Producto> getProductos() {
         return productos;
@@ -37,6 +37,10 @@ public class Menu {
         this.productos.add(producto);
     }
 
+    public void removeProductoById(int idProducto) {
+        productos.removeIf(p -> p.getId() == idProducto);
+    }
+
     public List<Promocion> getPromociones() {
         return promociones;
     }
@@ -47,5 +51,9 @@ public class Menu {
 
     public void addPromocion(Promocion promocion) {
         this.promociones.add(promocion);
+    }
+
+    public void removePromocionById(int idPromocion) {
+        promociones.removeIf(p -> p.getId() == idPromocion);
     }
 }
