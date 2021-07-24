@@ -1,11 +1,11 @@
 package domain.caja.pedido;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
 public class Pedido {
-    private LocalDate date;
+    private LocalDateTime date;
     private List<OrdenProducto> productos = new ArrayList<OrdenProducto>();
     private List<OrdenPromocion> promociones = new ArrayList<OrdenPromocion>();
 
@@ -27,11 +27,11 @@ public class Pedido {
 
     /* Getters y Setters */
 
-    public LocalDate getDate() {
+    public LocalDateTime getDate() {
         return date;
     }
 
-    public void setDate(LocalDate date) {
+    public void setDate(LocalDateTime date) {
         this.date = date;
     }
 

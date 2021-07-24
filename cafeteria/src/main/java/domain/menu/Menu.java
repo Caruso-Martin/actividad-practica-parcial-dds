@@ -29,6 +29,10 @@ public class Menu {
         return productos;
     }
 
+    public Producto getProductoById(int idProducto) {
+        return productos.get(idProducto);
+    }
+
     public void setProductos(List<Producto> productos) {
         this.productos = productos;
     }
@@ -43,6 +47,10 @@ public class Menu {
 
     public List<Promocion> getPromociones() {
         return promociones;
+    }
+
+    public Promocion getPromocionById(int idPromocion) {
+        return promociones.get(idPromocion);
     }
 
     public void setPromociones(List<Promocion> promociones) {
