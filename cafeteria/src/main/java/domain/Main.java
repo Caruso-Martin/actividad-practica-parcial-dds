@@ -9,10 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Main {
-    public static void main(String[] args) {
-
-    }
-   /* public static void main(String[] args) {
+   public static void main(String[] args) {
         Producto americano  = new Producto(0, "Americano", 100);
         Producto espresso   = new Producto(1, "Espresso", 120);
         Producto capuccino  = new Producto(2, "Capuccino", 150);
@@ -28,7 +25,6 @@ public class Main {
         promoCara.addProducto(moka);
         promoCara.addProducto(macchiato);
 
-
         List<Producto> productos = new ArrayList<Producto>();
         productos.add(americano);
         productos.add(espresso);
@@ -42,8 +38,8 @@ public class Main {
         promociones.add(promoEconomica);
 
         Menu menu = Menu.getInstancia(productos, promociones);
-        Caja caja = new Caja();
+       // Caja caja = new Caja();
 
-        Tienda tienda = new Tienda(menu, caja);
-    }*/
+        //Tienda tienda = new Tienda(menu, caja);
+    }
 }

@@ -10,6 +10,13 @@ public class OrdenProducto {
         return producto.getPrecio() * cantidad;
     }
 
+    /* Constructor */
+
+    public OrdenProducto(Producto producto, int cantidad) {
+        this.producto = producto;
+        this.cantidad = cantidad;
+    }
+
     /* Getters y Setters */
 
     public Producto getProducto() {

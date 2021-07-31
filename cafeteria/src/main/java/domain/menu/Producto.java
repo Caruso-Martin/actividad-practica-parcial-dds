@@ -17,10 +17,12 @@ public class Producto {
 
     public void renovarStock() throws Exception {
         estadoStock.renovarStock(this); // TODO: Modificar, la Excepcion causa problemas.
+
     }
 
     public void consumirStock(Producto producto, int cantidad){
         producto.restarCantidadDisponible(cantidad);
+        //TODO: cambiar estado
     }
 
     /* Constructor */

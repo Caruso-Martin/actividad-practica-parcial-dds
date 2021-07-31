@@ -1,17 +1,15 @@
 package domain.caja.pedido;
 
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
 public class Pedido {
-    private LocalDateTime date;
-    private List<OrdenProducto> productos = new ArrayList<OrdenProducto>();
-    private List<OrdenPromocion> promociones = new ArrayList<OrdenPromocion>();
+    private List<OrdenProducto> ordenesProductos = new ArrayList<OrdenProducto>();
+    private List<OrdenPromocion> ordenesPromociones = new ArrayList<OrdenPromocion>();
 
     public double precioTotal(){
-        double precioTotalProductos = productos.stream().mapToDouble(p -> p.precioTotal()).sum();
-        double precioTotalPromociones = promociones.stream().mapToDouble(p -> p.precioTotal()).sum();
+        double precioTotalProductos = ordenesProductos.stream().mapToDouble(p -> p.precioTotal()).sum();
+        double precioTotalPromociones = ordenesPromociones.stream().mapToDouble(p -> p.precioTotal()).sum();
 
         return precioTotalProductos + precioTotalPromociones;
     }
@@ -21,41 +19,33 @@ public class Pedido {
     }
 
     public void consumirStock(){
-        productos.forEach(p -> p.getProducto().consumirStock(p.getProducto(), p.getCantidad()));
-        promociones.forEach(p -> p.getPromocion().consumirStock(p.getPromocion(), p.getCantidad()));
+        ordenesProductos.forEach(p -> p.getProducto().consumirStock(p.getProducto(), p.getCantidad()));
+        ordenesPromociones.forEach(p -> p.getPromocion().consumirStock(p.getPromocion(), p.getCantidad()));
     }
 
     /* Getters y Setters */
 
-    public LocalDateTime getDate() {
-        return date;
+    public List<OrdenProducto> getOrdenesProductos() {
+        return ordenesProductos;
     }
 
-    public void setDate(LocalDateTime date) {
-        this.date = date;
+    public void setOrdenesProductos(List<OrdenProducto> ordenesProductos) {
+        this.ordenesProductos = ordenesProductos;
     }
 
-    public List<OrdenProducto> getProductos() {
-        return productos;
+    public void addOrdenProducto(OrdenProducto ordenProducto) {
+        this.ordenesProductos.add(ordenProducto);
     }
 
-    public void setProductos(List<OrdenProducto> productos) {
-        this.productos = productos;
+    public List<OrdenPromocion> getOrdenesPromociones() {
+        return ordenesPromociones;
     }
 
-    public void addProducto(OrdenProducto producto) {
-        this.productos.add(producto);
+    public void setOrdenesPromociones(List<OrdenPromocion> ordenesPromociones) {
+        this.ordenesPromociones = ordenesPromociones;
     }
 
-    public List<OrdenPromocion> getPromociones() {
-        return promociones;
-    }
-
-    public void setPromociones(List<OrdenPromocion> promociones) {
-        this.promociones = promociones;
-    }
-
-    public void addPromocion(OrdenPromocion promocion) {
-        this.promociones.add(promocion);
+    public void addOrdenPromocion(OrdenPromocion ordenPromocion) {
+        this.ordenesPromociones.add(ordenPromocion);
     }
 }

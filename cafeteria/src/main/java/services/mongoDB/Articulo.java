@@ -1,31 +1,20 @@
 package services.mongoDB;
 
-import domain.caja.pedido.OrdenProducto;
-import domain.caja.pedido.OrdenPromocion;
-
 public class Articulo {
     private String nombre;
     private double precioUnidad;
     private int cantidad;
 
-    public static Articulo crearAtriculo(OrdenProducto producto){
-        Articulo articulo = new Articulo();
-
-        articulo.setNombre(producto.getProducto().getNombre());
-        articulo.setPrecioUnidad(producto.getProducto().getPrecio());
-        articulo.setCantidad(producto.getCantidad());
-
-        return articulo;
+    public double getPrecioOrden(){
+        return precioUnidad * cantidad;
     }
 
-    public static Articulo crearAtriculo(OrdenPromocion promocion){
-        Articulo articulo = new Articulo();
+    /* Constructor */
 
-        articulo.setNombre(promocion.getPromocion().getNombre());
-        articulo.setPrecioUnidad(promocion.getPromocion().getPrecio());
-        articulo.setCantidad(promocion.getCantidad());
-
-        return articulo;
+    public Articulo(String nombre, double precioUnidad, int cantidad) {
+        this.nombre = nombre;
+        this.precioUnidad = precioUnidad;
+        this.cantidad = cantidad;
     }
 
     /* Getters y Setters */

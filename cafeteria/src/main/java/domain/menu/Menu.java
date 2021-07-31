@@ -19,7 +19,7 @@ public class Menu {
     /* Getters y Setters */
 
     public static Menu getInstancia(List<Producto> productos, List<Promocion> promociones) {
-        if (instancia == null) {
+        if (instancia == null) { //TODO: OBTENER INFO DE LA DB
             instancia = new Menu(productos, promociones);
         }
         return instancia;

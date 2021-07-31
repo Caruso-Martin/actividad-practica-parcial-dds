@@ -1,5 +1,8 @@
 package services.mongoDB;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
 import com.mongodb.client.MongoClients;
 import com.mongodb.client.MongoClient;
 import com.mongodb.client.MongoCollection;
@@ -11,25 +14,53 @@ public class MongoDBService {
     private final String mongodbURI = "mongodb://localhost:27017";
     MongoClient client = MongoClients.create(mongodbURI);
 
-    MongoDatabase database = client.getDatabase("cafeteriaDB");
-    MongoCollection<Document> recibosCollection = database.getCollection("recibos");
+    private final String databaseName = "cafeteriaDB";
+    MongoDatabase database = client.getDatabase(databaseName);
 
+    private final String collectionName = "recibos";
+    MongoCollection<Document> recibosCollection = database.getCollection(collectionName);
 
-    public static Document crearDocumento(Recibo recibo) {
-        Document nuevoDocumento = new Document();
+    public static Document mapearPOJOaJSON(Object object) {
+        ObjectMapper mapper = new ObjectMapper();
+        String cadenaJSON = "";
 
-        nuevoDocumento.append("date", recibo.getDate())
-                      .append("articulos", recibo.getArticulos())
-                      .append("moneda", "Dolar Estadounidense")
-                      .append("metodoPago", "Tarjeta")
-                      .append("subtotal", recibo.getSubtotal())
-                      .append("total", recibo.getTotal());
+        // JSON a String
+        try {
+            cadenaJSON = mapper.writerWithDefaultPrettyPrinter().writeValueAsString(object);
+        } catch (JsonProcessingException jsonProcessingException) {
+            jsonProcessingException.printStackTrace();
+        }
 
-        return nuevoDocumento;
+        return Document.parse(cadenaJSON);
     }
 
-    public void insertarDocumento(Document documento) {
-        database.getCollection("recibos").insertOne(documento);
+    public void cargarRecibo(Document documento) {
+        this.recibosCollection.insertOne(documento);
     }
 
+    /* Getters y Setters */
+
+    public MongoClient getClient() {
+        return client;
+    }
+
+    public void setClient(MongoClient client) {
+        this.client = client;
+    }
+
+    public MongoDatabase getDatabase() {
+        return database;
+    }
+
+    public void setDatabase(MongoDatabase database) {
+        this.database = database;
+    }
+
+    public  MongoCollection<Document> getRecibosCollection() {
+        return recibosCollection;
+    }
+
+    public void setRecibosCollection(MongoCollection<Document> recibosCollection) {
+        this.recibosCollection = recibosCollection;
+    }
 }

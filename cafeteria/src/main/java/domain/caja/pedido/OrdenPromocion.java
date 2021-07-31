@@ -10,6 +10,13 @@ public class OrdenPromocion {
         return promocion.getPrecio() * cantidad;
     }
 
+    /* Constructor */
+
+    public OrdenPromocion(Promocion promocion, int cantidad) {
+        this.promocion = promocion;
+        this.cantidad = cantidad;
+    }
+
     /* Getters y Setters */
 
     public Promocion getPromocion() {

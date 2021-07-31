@@ -1,9 +1,15 @@
 package domain.caja;
 
 public enum Moneda {
-    PESO,
-    DOLAR,
-    EURO;
+    PESO("Peso Argentino"),
+    DOLAR("Dolar Estadounidense"),
+    EURO("Euro");
+
+    private String valor;
+
+    Moneda(String valor) {
+        this.valor = valor;
+    }
 
     public static Moneda fromInteger(int idMoneda) {
         switch(idMoneda) {
@@ -15,5 +21,14 @@ public enum Moneda {
                 return EURO;
         }
         return null;
+    }
+
+    public String getValor() {
+        return valor;
+    }
+
+    @Override
+    public String toString() {
+        return this.getValor();
     }
 }

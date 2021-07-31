@@ -1,35 +1,53 @@
 package services.mongoDB;
 
-import domain.caja.Caja;
 import domain.caja.Moneda;
 import domain.caja.pedido.Pedido;
 import domain.caja.strategy.CobrarStrategy;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 
 public class Recibo {
     private LocalDateTime date;
-    private Moneda moneda;
-    private CobrarStrategy metodoPago;
+    private List<Articulo> articulos;
+    private String moneda;
+    private String metodoPago;
     private double subtotal;
     private double total;
-    private List<Articulo> articulos;
 
-    public Recibo crearRecibo(Caja caja){
-        Pedido pedido = caja.getPedido();
-        Recibo recibo = new Recibo();
+    public double calcularPrecioArticulos(){
+        return articulos.stream().mapToDouble(Articulo :: getPrecioOrden).sum();
+    }
 
-        recibo.setDate(LocalDateTime.now());
-        recibo.setMoneda(caja.getMoneda());
-        recibo.setMetodoPago(caja.getMetodoPago());
-        recibo.setSubtotal(pedido.precioTotal());
-        recibo.setTotal(pedido.precioTotal());
+    public List<Articulo> aListaArticulos(Pedido pedido) {
+        List <Articulo> articulos = new ArrayList<Articulo>();
 
-        pedido.getProductos().stream().forEach(p -> recibo.addArticulo(Articulo.crearAtriculo(p)) );
-        pedido.getPromociones().stream().forEach(p -> recibo.addArticulo(Articulo.crearAtriculo(p)) );
+        pedido.getOrdenesProductos()
+              .forEach(p -> articulos.add(new Articulo(
+                                                        p.getProducto().getNombre(),
+                                                        p.getProducto().getPrecio(),
+                                                        p.getCantidad()))
+                                                      );
+        pedido.getOrdenesPromociones()
+              .forEach(p -> articulos.add(new Articulo(
+                                                        p.getPromocion().getNombre(),
+                                                        p.getPromocion().getPrecio(),
+                                                        p.getCantidad()))
+                                                      );
 
-        return recibo;
+        return articulos;
+    }
+
+    /* Constructor */
+
+    public Recibo(Pedido pedido, Moneda moneda, CobrarStrategy metodoPago) {
+        this.date = LocalDateTime.now();
+        this.articulos = this.aListaArticulos(pedido);
+        this.moneda = moneda.toString();
+        this.metodoPago = metodoPago.toString();
+        this.subtotal = this.calcularPrecioArticulos();
+        //this.total = this.calcularPrecioArticulos() - metodoPago.aplicarDescuento(); // modificar
     }
 
     /* Getters y Setters */
@@ -42,19 +60,31 @@ public class Recibo {
         this.date = date;
     }
 
-    public Moneda getMoneda() {
+    public List<Articulo> getArticulos() {
+        return articulos;
+    }
+
+    public void setArticulos(List<Articulo> articulos) {
+        this.articulos = articulos;
+    }
+
+    public void addArticulo(Articulo articulo) {
+        this.articulos.add(articulo);
+    }
+
+    public String getMoneda() {
         return moneda;
     }
 
-    public void setMoneda(Moneda moneda) {
+    public void setMoneda(String moneda) {
         this.moneda = moneda;
     }
 
-    public CobrarStrategy getMetodoPago() {
+    public String getMetodoPago() {
         return metodoPago;
     }
 
-    public void setMetodoPago(CobrarStrategy metodoPago) {
+    public void setMetodoPago(String metodoPago) {
         this.metodoPago = metodoPago;
     }
 
@@ -72,17 +102,5 @@ public class Recibo {
 
     public void setTotal(double total) {
         this.total = total;
-    }
-
-    public List<Articulo> getArticulos() {
-        return articulos;
-    }
-
-    public void setArticulos(List<Articulo> articulos) {
-        this.articulos = articulos;
-    }
-
-    public void addArticulo(Articulo articulo) {
-        this.articulos.add(articulo);
     }
 }

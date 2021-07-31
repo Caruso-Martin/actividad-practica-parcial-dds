@@ -1,7 +1,8 @@
 package domain.caja.strategy;
 
-import domain.caja.Caja;
+import domain.Tienda;
 
 public interface CobrarStrategy {
-    void cobrarPedido(Caja caja);
+    void cobrarPedido(Tienda tienda);
+    String toString();
 }
