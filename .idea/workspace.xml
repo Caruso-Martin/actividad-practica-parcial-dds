@@ -5,67 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7fc503a9-9b7f-47f3-86f8-a390207c5b79" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/.name" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cafeteria.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/domain/Tienda.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/domain/caja/Caja.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/domain/caja/cotizacion/CotizarStrategy.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/domain/caja/cotizacion/Dolar.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/domain/caja/cotizacion/Euro.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/domain/caja/cotizacion/Peso.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/domain/menu/Menu.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/domain/menu/producto/Orden.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/domain/menu/producto/Producto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/domain/menu/producto/ProductoSimple.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/domain/menu/producto/Promocion.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/domain/menu/producto/stock/Insuficiente.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/domain/menu/producto/stock/StockState.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/domain/menu/producto/stock/Suficiente.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/domain/menu/producto/stock/Vacio.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/services/CurrencyConverter/CurrencyConverterService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/services/CurrencyConverter/ExchangeService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/services/CurrencyConverter/entities/Exchange.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/services/MySQLDataBase/MySQLService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/actividad-practica-parcial-dds.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cafeteria/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cafeteria/.idea/.name" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cafeteria/.idea/compiler.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cafeteria/.idea/jarRepositories.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cafeteria/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cafeteria/.idea/uiDesigner.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cafeteria/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cafeteria/actividad-practica-parcial-dds.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cafeteria/pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cafeteria/src/main/java/domain/TestAPI.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cafeteria/src/main/java/domain/TestAPI2.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cafeteria/src/main/java/domain/Tienda.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cafeteria/src/main/java/domain/caja/Caja.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cafeteria/src/main/java/domain/caja/Moneda.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cafeteria/src/main/java/domain/caja/strategy/CobrarStrategy.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cafeteria/src/main/java/domain/caja/strategy/Efectivo.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cafeteria/src/main/java/domain/caja/strategy/Tarjeta.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cafeteria/src/main/java/domain/menu/Menu.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cafeteria/src/main/java/domain/menu/Producto.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cafeteria/src/main/java/domain/menu/Promocion.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cafeteria/src/main/java/domain/menu/state/Estado.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cafeteria/src/main/java/domain/menu/state/Insuficiente.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cafeteria/src/main/java/domain/menu/state/Suficiente.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cafeteria/src/main/java/domain/menu/state/Vacio.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cafeteria/src/main/java/services/CurrencyConverter/CurrencyConverterService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cafeteria/src/main/java/services/CurrencyConverter/ExchangeService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cafeteria/src/main/java/services/CurrencyConverter/entites/Exchange.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cafeteria/src/main/java/services/ExchangeRates/ExchangeRatesService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cafeteria/src/main/java/services/ExchangeRates/ExchangeService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cafeteria/src/main/java/services/ExchangeRates/entities/Exchange.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cafeteria/src/main/java/services/ExchangeRates/entities/Rates.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/services/MySQLDataBase/MySQLService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/services/MySQLDataBase/MySQLService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -142,7 +83,7 @@
       <workItem from="1628728125559" duration="642000" />
       <workItem from="1628728856216" duration="19256000" />
       <workItem from="1628861390654" duration="139000" />
-      <workItem from="1628861615621" duration="17127000" />
+      <workItem from="1628861615621" duration="18196000" />
     </task>
     <servers />
   </component>
