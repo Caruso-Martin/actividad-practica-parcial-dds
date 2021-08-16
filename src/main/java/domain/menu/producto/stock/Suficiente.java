@@ -7,4 +7,14 @@ public class Suficiente implements StockState{
     public void renovarStock(Producto producto) {
         System.out.println("No se renovara el stock, hay una cantidad suficiente.");
     }
+
+    @Override
+    public String toString(){
+        return "Suficiente";
+    }
+
+    @Override
+    public Integer toInt(){
+        return 3;
+    }
 }

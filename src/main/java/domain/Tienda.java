@@ -2,6 +2,9 @@ package domain;
 
 import domain.caja.Caja;
 import domain.menu.Menu;
+import services.MySQLDataBase.MySQLService;
+
+import java.sql.SQLException;
 
 public class Tienda {
     private static Tienda instancia = null;
@@ -14,15 +17,19 @@ public class Tienda {
     /* Constructor */
 
     // Singleton
-    private Tienda() {
+
+    public Tienda(Menu menu, Double montoTotalRecaudado, String ubicacion) {
+        this.menu = menu;
+        this.montoTotalRecaudado = montoTotalRecaudado;
+        this.ubicacion = ubicacion;
     }
 
     /* Getters y Setters */
 
     // Singleton
-    public static Tienda getInstancia() {
+    public static Tienda getInstancia(Menu menu, Double montoTotalRecaudado, String ubicacion) {
         if(instancia == null)
-            instancia = new Tienda();
+            instancia = new Tienda(menu, montoTotalRecaudado, ubicacion);
 
         return instancia;
     }
@@ -55,8 +62,9 @@ public class Tienda {
         this.montoTotalRecaudado = montoTotalRecaudado;
     }
 
-    public void sumarMontoTotalRecaudado(Double montoRecaudado) {
+    public void sumarMontoTotalRecaudado(Double montoRecaudado) throws SQLException {
         this.montoTotalRecaudado += montoRecaudado;
+        MySQLService.actualizarMonto(montoTotalRecaudado, 1);
     }
 
     public String getUbicacion() {

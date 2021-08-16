@@ -5,7 +5,26 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7fc503a9-9b7f-47f3-86f8-a390207c5b79" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/interfaces/MainCaja.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/interfaces/MainMenu.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/services/InterfaceServices/InterfaceService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cafeteria.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/domain/Tienda.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/domain/Tienda.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/domain/caja/Caja.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/domain/caja/Caja.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/domain/caja/cotizacion/CotizarStrategy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/domain/caja/cotizacion/CotizarStrategy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/domain/caja/cotizacion/Dolar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/domain/caja/cotizacion/Dolar.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/domain/caja/cotizacion/Euro.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/domain/caja/cotizacion/Euro.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/domain/caja/cotizacion/Peso.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/domain/caja/cotizacion/Peso.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/domain/menu/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/domain/menu/Menu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/domain/menu/producto/Orden.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/domain/menu/producto/Orden.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/domain/menu/producto/Producto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/domain/menu/producto/Producto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/domain/menu/producto/ProductoSimple.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/domain/menu/producto/ProductoSimple.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/domain/menu/producto/Promocion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/domain/menu/producto/Promocion.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/domain/menu/producto/stock/Insuficiente.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/domain/menu/producto/stock/Insuficiente.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/domain/menu/producto/stock/StockState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/domain/menu/producto/stock/StockState.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/domain/menu/producto/stock/Suficiente.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/domain/menu/producto/stock/Suficiente.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/domain/menu/producto/stock/Vacio.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/domain/menu/producto/stock/Vacio.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/services/MySQLDataBase/MySQLService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/services/MySQLDataBase/MySQLService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -18,12 +37,21 @@
       <list>
         <option value="Enum" />
         <option value="Interface" />
+        <option value="HTML File" />
         <option value="Class" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
   </component>
   <component name="ProjectId" id="1wbX9K4JO3YuRQfEc16lwwpFtyZ" />
   <component name="ProjectLevelVcsManager">
@@ -35,15 +63,36 @@
   </component>
   <component name="PropertiesComponent">
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
   </component>
-  <component name="RunManager">
-    <configuration name="MySQL" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="services.MySQLDataBase.MySQL" />
+  <component name="RecentsManager">
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="interfaces" />
+      <recent name="inteface" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Application.MainMenu">
+    <configuration name="MainCaja" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="interfaces.MainCaja" />
+      <module name="cafeteria" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MainMenu" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="interfaces.MainMenu" />
+      <module name="cafeteria" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MySQLService" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="services.MySQLDataBase.MySQLService" />
       <module name="cafeteria" />
       <extension name="coverage">
         <pattern>
@@ -66,9 +115,14 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <list>
+      <item itemvalue="Application.MainCaja" />
+      <item itemvalue="Application.MainMenu" />
+      <item itemvalue="Application.MySQLService" />
+    </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.MySQL" />
+        <item itemvalue="Application.MySQLService" />
       </list>
     </recent_temporary>
   </component>
@@ -83,7 +137,9 @@
       <workItem from="1628728125559" duration="642000" />
       <workItem from="1628728856216" duration="19256000" />
       <workItem from="1628861390654" duration="139000" />
-      <workItem from="1628861615621" duration="18196000" />
+      <workItem from="1628861615621" duration="92408000" />
+      <workItem from="1629124801304" duration="1804000" />
+      <workItem from="1629127481726" duration="11305000" />
     </task>
     <servers />
   </component>

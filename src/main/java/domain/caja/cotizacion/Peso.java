@@ -5,4 +5,9 @@ public class Peso implements CotizarStrategy {
     public Double cotizar(Double monto) {
         return monto;
     }
+
+    @Override
+    public String toString() {
+        return "PESOS";
+    }
 }

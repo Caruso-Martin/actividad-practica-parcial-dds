@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Menu {
-    private Menu instancia = null;
+    private static Menu instancia = null;
 
     private List<Producto> productos = new ArrayList<Producto>();
 
@@ -20,7 +20,7 @@ public class Menu {
     /* Getters y Setters */
 
     // Singleton
-    public Menu getInstancia(List<Producto> productos) {
+    public static Menu getInstancia(List<Producto> productos) {
         if(instancia == null)
                 instancia = new Menu(productos);
 

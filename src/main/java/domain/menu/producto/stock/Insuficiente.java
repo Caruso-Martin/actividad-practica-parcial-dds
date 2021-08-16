@@ -8,7 +8,17 @@ public class Insuficiente implements StockState{
         int stockActual = producto.getCantidadDisponible();
         producto.setCantidadDisponible(stockActual * 2);
 
-        if(producto.getCantidadDisponible() <= 20)
+        if(producto.getCantidadDisponible() >= 20)
             producto.setEstadoStock(new Suficiente());
+    }
+
+    @Override
+    public String toString(){
+        return "Insuficiente";
+    }
+
+    @Override
+    public Integer toInt(){
+        return 2;
     }
 }

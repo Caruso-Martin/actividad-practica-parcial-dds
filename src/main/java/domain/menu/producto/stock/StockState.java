@@ -4,4 +4,6 @@ import domain.menu.producto.Producto;
 
 public interface StockState {
     void renovarStock(Producto producto);
+    String toString();
+    Integer toInt();
 }

@@ -13,4 +13,9 @@ public class Dolar implements CotizarStrategy {
 
         return monto * Double.parseDouble(exchange.ARS_USD);
     }
+
+    @Override
+    public String toString() {
+        return "DOLARES";
+    }
 }

@@ -13,4 +13,9 @@ public class Euro implements CotizarStrategy {
 
         return monto * Double.parseDouble(exchange.ARS_EUR);
     }
+
+    @Override
+    public String toString() {
+        return "EUROS";
+    }
 }

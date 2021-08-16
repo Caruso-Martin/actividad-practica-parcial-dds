@@ -2,8 +2,10 @@ package domain.menu.producto;
 
 import domain.menu.producto.stock.StockState;
 
+import java.sql.SQLException;
+
 public interface Producto {
-    void renovarStock(Producto producto);
+    void renovarStock(Producto producto) throws SQLException;
     void consumirStock(Integer cantidadConsumida) throws Exception;
     boolean estaDisponible();
 

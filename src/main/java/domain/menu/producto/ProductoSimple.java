@@ -4,6 +4,9 @@ import domain.menu.producto.stock.Insuficiente;
 import domain.menu.producto.stock.StockState;
 import domain.menu.producto.stock.Suficiente;
 import domain.menu.producto.stock.Vacio;
+import services.MySQLDataBase.MySQLService;
+
+import java.sql.SQLException;
 
 public class ProductoSimple implements Producto {
     private Integer id;
@@ -14,27 +17,35 @@ public class ProductoSimple implements Producto {
     private StockState estadoStock;
 
     @Override
-    public void renovarStock(Producto producto) {
+    public void renovarStock(Producto producto) throws SQLException {
         estadoStock.renovarStock(this);
+        MySQLService.actualizarStock(cantidadDisponible, estadoStock.toInt(), id);
     }
 
     @Override
     public void consumirStock(Integer cantidadConsumida) throws Exception {
-        this.setCantidadDisponible(cantidadDisponible - cantidadConsumida);
-        this.setEstadoStock(this.estadoSegunCantidad(cantidadDisponible));
+        if(cantidadDisponible >= cantidadConsumida) {
+            this.setCantidadDisponible(cantidadDisponible - cantidadConsumida);
+            this.setEstadoStock(this.estadoSegunCantidad(cantidadDisponible));
+            MySQLService.actualizarStock(cantidadDisponible, estadoStock.toInt(), id);
+        } else {
+            throw new Exception("No hay suficiente #" + id + " - " + nombre + "\nCantidad disponible actualmente: " + cantidadDisponible);
+        }
     }
 
-    private StockState estadoSegunCantidad(Integer cantidadActual) throws Exception {
+    public static StockState estadoSegunCantidad(Integer cantidadActual) throws Exception {
+        StockState stockState = null;
+
         if(cantidadActual == 0)
-            return new Vacio();
+            stockState = new Vacio();
 
         if(cantidadActual > 0 && cantidadActual < 20)
-            return new Insuficiente();
+            stockState = new Insuficiente();
 
         if(cantidadActual >= 20)
-            return new Suficiente();
+            stockState = new Suficiente();
 
-        throw new Exception("El valor del stock es negativo.");
+        return stockState;
     }
 
     @Override
