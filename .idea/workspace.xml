@@ -5,27 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7fc503a9-9b7f-47f3-86f8-a390207c5b79" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/interfaces/MainCaja.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/interfaces/MainMenu.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/services/InterfaceServices/InterfaceService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cafeteria.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/domain/Tienda.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/domain/Tienda.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/domain/caja/Caja.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/domain/caja/Caja.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/domain/caja/cotizacion/CotizarStrategy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/domain/caja/cotizacion/CotizarStrategy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/domain/caja/cotizacion/Dolar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/domain/caja/cotizacion/Dolar.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/domain/caja/cotizacion/Euro.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/domain/caja/cotizacion/Euro.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/domain/caja/cotizacion/Peso.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/domain/caja/cotizacion/Peso.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/domain/menu/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/domain/menu/Menu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/domain/menu/producto/Orden.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/domain/menu/producto/Orden.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/domain/menu/producto/Producto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/domain/menu/producto/Producto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/domain/menu/producto/ProductoSimple.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/domain/menu/producto/ProductoSimple.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/domain/menu/producto/Promocion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/domain/menu/producto/Promocion.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/domain/menu/producto/stock/Insuficiente.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/domain/menu/producto/stock/Insuficiente.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/domain/menu/producto/stock/StockState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/domain/menu/producto/stock/StockState.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/domain/menu/producto/stock/Suficiente.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/domain/menu/producto/stock/Suficiente.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/domain/menu/producto/stock/Vacio.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/domain/menu/producto/stock/Vacio.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/services/MySQLDataBase/MySQLService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/services/MySQLDataBase/MySQLService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -104,17 +84,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <list>
       <item itemvalue="Application.MainCaja" />
       <item itemvalue="Application.MainMenu" />
@@ -139,7 +108,8 @@
       <workItem from="1628861390654" duration="139000" />
       <workItem from="1628861615621" duration="92408000" />
       <workItem from="1629124801304" duration="1804000" />
-      <workItem from="1629127481726" duration="11305000" />
+      <workItem from="1629127481726" duration="12657000" />
+      <workItem from="1629149097808" duration="1832000" />
     </task>
     <servers />
   </component>
