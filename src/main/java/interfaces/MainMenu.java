@@ -25,7 +25,7 @@ public class MainMenu {
         do {
             System.out.println("======================== ¡BIENVENIDO AL MODULO 'MENU'! =======================");
             System.out.println("OPERACIONES DISPONIBLES");
-            System.out.println("\t#1. CONSULTAR MENU DEL DIA\n\t#2. OPERACIONES CON PRODUCTOS\n\t#3. OPERACIONES CON PROMOCIONES\n\t#4. CAMBIAR MONEDA\n\t#5. VOLVER AL MODULO 'INICIAL'");
+            System.out.println("\t#1. CONSULTAR MENU DEL DIA\n\t#2. OPERACIONES CON PRODUCTOS\n\t#3. OPERACIONES CON PROMOCIONES\n\t#4. CAMBIAR MONEDA");
             System.out.println("INGRESE QUE OPERACION DECIDE REALIZAR: ");
 
             operacionSeleccionada = scanner.nextInt();
@@ -37,7 +37,7 @@ public class MainMenu {
                     InterfaceService.mostrarMenu(caja);
                     break;
                 case 2:
-                    MainMenu.operacionesPedido();
+                    MainMenu.operacionesProducto();
                     break;
                 case 3:
                     MainMenu.operacionesPromocion();
@@ -45,18 +45,15 @@ public class MainMenu {
                 case 4:
                     InterfaceService.cambiarMoneda(caja);
                     break;
-                case 5://TODO: NO HACER
-                    System.out.println("A");
-                    break;
                 default:
                     InterfaceService.validadorOperaciones(operacionSeleccionada);
                     break;
             }
             InterfaceService.limpiarConsola();
-        } while(operacionSeleccionada != 5);
+        } while(operacionSeleccionada != 4);
     }
 
-    private static void operacionesPedido() throws Exception {
+    private static void operacionesProducto() throws Exception {
         int operacionSeleccionada;
         do {
             System.out.println("========================== #2. OPERACIONES PRODUCTO ==========================");
@@ -148,6 +145,7 @@ public class MainMenu {
                     System.out.println("\n********************** (MAXIMO 5 PRODUCTOS POR PROMOCION) *********************");
 
                     MySQLService.agregarPromocion(MainMenu.crearPromocion(), 1);
+
                     System.out.println("\n*********************** PROMOCION AGREGADA EXITOSAMENTE ***********************");
                     break;
                 case 2:

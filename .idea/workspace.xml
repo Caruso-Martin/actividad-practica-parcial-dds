@@ -6,6 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="7fc503a9-9b7f-47f3-86f8-a390207c5b79" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/interfaces/MainCaja.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/interfaces/MainCaja.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/interfaces/MainMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/interfaces/MainMenu.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,6 +51,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
+    <property name="nodejs_package_manager_path" value="npm" />
   </component>
   <component name="RecentsManager">
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
@@ -110,6 +113,9 @@
       <workItem from="1629124801304" duration="1804000" />
       <workItem from="1629127481726" duration="12657000" />
       <workItem from="1629149097808" duration="1832000" />
+      <workItem from="1629208830933" duration="824000" />
+      <workItem from="1629211768688" duration="271000" />
+      <workItem from="1629300260305" duration="995000" />
     </task>
     <servers />
   </component>
