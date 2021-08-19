@@ -65,8 +65,8 @@ public class MySQLService {
     public static void agregarPromocion(Promocion promocion, Integer idMenu) throws SQLException {
         Statement statement = connection1.createStatement();
 
-        statement.execute("INSERT INTO `cafetindb`.`promociones` (`idPromocion`, `nombre`, `precio`, `descripcion`, `cantidadDisponible`, `idStockState`, `idMenu`) " +
-                "VALUES ('" + MySQLService.obtenerProximoIDPromocion() + "', '" + promocion.getNombre() + "', " + promocion.getPrecio() + " , '" + promocion.getDescripcion()  + "', " + promocion.getCantidadDisponible() + ", " + promocion.getEstadoStock().toInt() + ", " + idMenu + ")");
+        statement.execute("INSERT INTO `cafetindb`.`promociones` (`idPromocion`, `nombre`, `precio`, `descripcion`, `cantidadDisponible`, `idStockState`, `idMenu`, `idPromocioPadre`) " +
+                "VALUES ('" + MySQLService.obtenerProximoIDPromocion() + "', '" + promocion.getNombre() + "', " + promocion.getPrecio() + " , '" + promocion.getDescripcion()  + "', " + promocion.getCantidadDisponible() + ", " + promocion.getEstadoStock().toInt() + ", " + idMenu + ")");//Todo
 
         statement.close();
     }
