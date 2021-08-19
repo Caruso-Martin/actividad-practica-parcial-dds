@@ -28,4 +28,9 @@ public interface Producto {
 
     StockState getEstadoStock();
     void setEstadoStock(StockState estadoStock);
+
+    Integer getPromocionPadreID();
+    void setPromocionPadreID(Integer promocionPadreID);
+
+
 }

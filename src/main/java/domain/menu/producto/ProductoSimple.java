@@ -15,6 +15,7 @@ public class ProductoSimple implements Producto {
     private String descripcion;
     private Integer cantidadDisponible;
     private StockState estadoStock;
+    private Integer promocionPadreID;
 
     @Override
     public void renovarStock(Producto producto) throws SQLException {
@@ -113,5 +114,15 @@ public class ProductoSimple implements Producto {
     @Override
     public void setEstadoStock(StockState estadoStock) {
         this.estadoStock = estadoStock;
+    }
+
+    @Override
+    public Integer getPromocionPadreID() {
+        return promocionPadreID;
+    }
+
+    @Override
+    public void setPromocionPadreID(Integer promocionPadreID) {
+        this.promocionPadreID = promocionPadreID;
     }
 }

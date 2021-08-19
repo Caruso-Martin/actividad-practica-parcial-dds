@@ -1,7 +1,5 @@
 package domain.menu.producto;
 
-import com.mysql.cj.protocol.a.MysqlBinaryValueDecoder;
-import domain.menu.Menu;
 import domain.menu.producto.stock.Insuficiente;
 import domain.menu.producto.stock.StockState;
 import domain.menu.producto.stock.Suficiente;
@@ -15,7 +13,8 @@ import java.util.stream.Collectors;
 
 public class Promocion implements Producto {
     private Integer id;
-    List<Producto> productos = new ArrayList<Producto>();
+    private List<Producto> productos = new ArrayList<Producto>();
+    private Integer promocionPadreID;
 
     @Override
     public void renovarStock(Producto producto) {
@@ -114,6 +113,16 @@ public class Promocion implements Producto {
     @Override
     public void setEstadoStock(StockState estadoStock) {
 
+    }
+
+    @Override
+    public Integer getPromocionPadreID() {
+        return promocionPadreID;
+    }
+
+    @Override
+    public void setPromocionPadreID(Integer promocionPadreID) {
+        this.promocionPadreID = promocionPadreID;
     }
 
     public List<Producto> getProductos() {
