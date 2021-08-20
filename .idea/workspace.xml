@@ -5,13 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7fc503a9-9b7f-47f3-86f8-a390207c5b79" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/actividad-practica-parcial-dds.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/domain/menu/producto/Producto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/domain/menu/producto/Producto.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/domain/menu/producto/ProductoSimple.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/domain/menu/producto/ProductoSimple.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/domain/menu/producto/Promocion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/domain/menu/producto/Promocion.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/interfaces/MainCaja.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/interfaces/MainCaja.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/interfaces/MainMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/interfaces/MainMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/services/InterfaceServices/InterfaceService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/services/InterfaceServices/InterfaceService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/services/MySQLDataBase/MySQLService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/services/MySQLDataBase/MySQLService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -68,7 +68,7 @@
       <recent name="inteface" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.MainMenu">
+  <component name="RunManager" selected="Application.MainCaja">
     <configuration name="MainCaja" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="interfaces.MainCaja" />
       <module name="cafeteria" />

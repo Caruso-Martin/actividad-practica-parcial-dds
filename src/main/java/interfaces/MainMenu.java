@@ -25,7 +25,7 @@ public class MainMenu {
         do {
             System.out.println("======================== ¡BIENVENIDO AL MODULO 'MENU'! =======================");
             System.out.println("OPERACIONES DISPONIBLES");
-            System.out.println("\t#1. CONSULTAR MENU DEL DIA\n\t#2. OPERACIONES CON PRODUCTOS\n\t#3. OPERACIONES CON PROMOCIONES\n\t#4. CAMBIAR MONEDA");
+            System.out.println("\t#1. CONSULTAR MENU DEL DIA\n\t#2. OPERACIONES CON PRODUCTOS\n\t#3. OPERACIONES CON PROMOCIONES\n\t#4. CAMBIAR MONEDA\n\t#5. TERMINAR PROGRAMA");
             System.out.println("INGRESE QUE OPERACION DECIDE REALIZAR: ");
 
             operacionSeleccionada = scanner.nextInt();
@@ -45,12 +45,15 @@ public class MainMenu {
                 case 4:
                     InterfaceService.cambiarMoneda(caja);
                     break;
+                case 5:
+                    System.out.println("================================ ¡HASTA LUEGO! ===============================");
+                    break;
                 default:
                     InterfaceService.validadorOperaciones(operacionSeleccionada);
                     break;
             }
             InterfaceService.limpiarConsola();
-        } while(operacionSeleccionada != 4);
+        } while(operacionSeleccionada != 5);
     }
 
     private static void operacionesProducto() throws Exception {

@@ -31,6 +31,4 @@ public interface Producto {
 
     Integer getPromocionPadreID();
     void setPromocionPadreID(Integer promocionPadreID);
-
-
 }

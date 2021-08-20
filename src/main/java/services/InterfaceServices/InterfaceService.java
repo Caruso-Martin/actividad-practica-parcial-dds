@@ -31,7 +31,7 @@ public class InterfaceService {
 
         promociones.forEach(p -> {
             try {
-                System.out.printf("ID: %2d - %22s - Precio: $%7.2f - Cantidad disponible: %2d\n", p.getId(), p.getNombre(), caja.getMonedaPago().cotizar(p.getPrecio()), p.getCantidadDisponible());
+                System.out.printf("ID: %2d - %60s - Precio: $%7.2f - Cantidad disponible: %2d\n", p.getId(), p.getNombre(), caja.getMonedaPago().cotizar(p.getPrecio()), p.getCantidadDisponible());
             } catch (IOException e) {
                 e.printStackTrace();
             }

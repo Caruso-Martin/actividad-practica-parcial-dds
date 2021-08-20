@@ -28,6 +28,7 @@ public class ProductoSimple implements Producto {
         if(cantidadDisponible >= cantidadConsumida) {
             this.setCantidadDisponible(cantidadDisponible - cantidadConsumida);
             this.setEstadoStock(this.estadoSegunCantidad(cantidadDisponible));
+
             MySQLService.actualizarStock(cantidadDisponible, estadoStock.toInt(), id);
         } else {
             throw new Exception("No hay suficiente #" + id + " - " + nombre + "\nCantidad disponible actualmente: " + cantidadDisponible);

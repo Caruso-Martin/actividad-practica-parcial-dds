@@ -12,7 +12,7 @@ import java.util.Scanner;
 
 public class MainCaja {
     private static Scanner scanner;
-    private static Caja caja = new Caja(new Peso());
+    private static final Caja caja = new Caja(new Peso());
 
     public static void main(String[] args) throws SQLException, IOException {
         MySQLService mySQL = new MySQLService();
@@ -24,7 +24,7 @@ public class MainCaja {
         do {
             System.out.println("======================== ¡BIENVENIDO AL MODULO 'CAJA'! =======================");
             System.out.println("OPERACIONES DISPONIBLES");
-            System.out.println("\t#1. CONSULTAR MENU DEL DIA\n\t#2. CREAR PEDIDO\n\t#3. CAMBIAR MONEDA");
+            System.out.println("\t#1. CONSULTAR MENU DEL DIA\n\t#2. CREAR PEDIDO\n\t#3. CAMBIAR MONEDA\n\t#4. TERMINAR PROGRAMA");
             System.out.println("INGRESE QUE OPERACION DECIDE REALIZAR: ");
 
             operacionSeleccionada = scanner.nextInt();
@@ -41,12 +41,15 @@ public class MainCaja {
                 case 3:
                     InterfaceService.cambiarMoneda(caja);
                     break;
+                case 4:
+                    System.out.println("================================ ¡HASTA LUEGO! ===============================");
+                    break;
                 default:
                     InterfaceService.validadorOperaciones(operacionSeleccionada);
                     break;
             }
             InterfaceService.limpiarConsola();
-        } while(operacionSeleccionada != 3);
+        } while(operacionSeleccionada != 4);
     }
 
     private static void crearPedido() throws SQLException, IOException {
@@ -84,9 +87,9 @@ public class MainCaja {
                     numeroOrden++;
                     break;
                 case 2:
-                    System.out.println("--------------------------------- CREAR ORDEN --------------------------------");
+                    System.out.println("---------------------------------------------------- CREAR ORDEN ----------------------------------------------------");
                     InterfaceService.mostrarPromocionesMenu(caja);
-                    System.out.println("------------------------------------------------------------------------------\n");
+                    System.out.println("---------------------------------------------------------------------------------------------------------------------");
 
                     System.out.println("ORDEN #" + numeroOrden);
                     Orden ordenPromocion = new Orden();

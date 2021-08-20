@@ -141,4 +141,7 @@ public class Promocion implements Producto {
         this.productos.add(MySQLService.obtenerProducto(idProducto));
     }
 
+    public void addPromocionByID(Integer idPromocion) throws SQLException {
+        this.productos.add(MySQLService.obtenerPromocion(idPromocion));
+    }
 }

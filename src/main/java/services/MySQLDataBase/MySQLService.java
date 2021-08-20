@@ -19,18 +19,18 @@ public class MySQLService {
     private static Connection connection2;
     private static Connection connection3;
 
-    public static void main(String[] args) throws SQLException {
+    public static void main(String[] args) throws Exception {
         MySQLService mySQL = new MySQLService();
         mySQL.crearConexion();
 
         //ProductoSimple producto = MySQLService.obtenerProducto(1);
         //System.out.println(producto.getId() + " - " + producto.getNombre() + " - Precio: $" + producto.getPrecio() + "\nDescripcion: " + producto.getDescripcion() + "\nCantidad disponible: " + producto.getCantidadDisponible());
 
-        //Promocion promocion = MySQLService.obtenerPromocion(2);
+        //Promocion promocion = MySQLService.obtenerPromocion(4);
         //System.out.println(promocion.getId() + " - " + promocion.getNombre() + " - Precio: $" + promocion.getPrecio() + "\nDescripcion: " + promocion.getDescripcion() + "\nCantidad disponible: " + promocion.getCantidadDisponible());
 
         //Menu menu = MySQLService.obtenerMenu(1);
-        //menu.getProductos().forEach(p -> System.out.printf("%3d - %22s - Precio: %.2f - Descripcion: %s\n", p.getId(), p.getNombre(), p.getPrecio(), p.getDescripcion()));
+        //menu.getProductos().forEach(p -> System.out.printf("%3d - %40s - Precio: %.2f - Descripcion: %s\n", p.getId(), p.getNombre(), p.getPrecio(), p.getDescripcion()));
 
         //Tienda tienda = MySQLService.obtenerTienda(1);
         //System.out.println(tienda.getMontoTotalRecaudado() + " - " + tienda.getUbicacion());
@@ -38,14 +38,25 @@ public class MySQLService {
 
         //MySQLService.actualizarMonto(100, 1);
 
-        // MySQLService.actualizarPrecio(400, 6);
+        //MySQLService.actualizarPrecio(500.0, 7);
 
-        //MySQLService.actualizarStock(20, 3, 5);
-        //MySQLService.actualizarStock(20, 3, 6);
+        //MySQLService.actualizarStock(20, 3, 1);
+        //MySQLService.actualizarStock(20, 3, 2);
         //MySQLService.actualizarStock(20, 3, 7);
 
         //MySQLService.agregarProducto(MySQLService.obtenerProducto(1), 1);
-        //MySQLService.agregarPromocion(MySQLService.obtenerPromocion(2), 1);
+
+        //Promocion promocionErronea = new Promocion();
+        //promocionErronea.addProductoByID(4);
+        //promocionErronea.addProductoByID(5);
+
+        //MySQLService.agregarPromocion(promocionErronea, 1);
+
+        //Promocion promocionValida = new Promocion();
+        //promocionValida.addProductoByID(7);
+        //promocionValida.addPromocionByID(1);
+
+        //MySQLService.agregarPromocion(promocionValida, 1);
 
     }
 
@@ -62,11 +73,42 @@ public class MySQLService {
 
     /* INSERT */
 
-    public static void agregarPromocion(Promocion promocion, Integer idMenu) throws SQLException {
+    public static void agregarPromocion(Promocion promocion, Integer idMenu) throws Exception {
         Statement statement = connection1.createStatement();
+        Statement statement2 = connection2.createStatement();
 
-        statement.execute("INSERT INTO `cafetindb`.`promociones` (`idPromocion`, `nombre`, `precio`, `descripcion`, `cantidadDisponible`, `idStockState`, `idMenu`, `idPromocioPadre`) " +
-                "VALUES ('" + MySQLService.obtenerProximoIDPromocion() + "', '" + promocion.getNombre() + "', " + promocion.getPrecio() + " , '" + promocion.getDescripcion()  + "', " + promocion.getCantidadDisponible() + ", " + promocion.getEstadoStock().toInt() + ", " + idMenu + "," + promocion.getPromocionPadreID()+")");
+        Integer idPromocion = MySQLService.obtenerProximoIDPromocion();
+
+        boolean productosNoTienenPadre = promocion.getProductos().stream().allMatch(p -> p.getPromocionPadreID() == null || p.getPromocionPadreID() == 0);
+
+        System.out.println(productosNoTienenPadre);
+
+        if(productosNoTienenPadre) {
+
+            statement.execute("INSERT INTO `cafetindb`.`promociones` (`idPromocion`, `nombre`, `precio`, `descripcion`, `cantidadDisponible`, `idStockState`, `idMenu`, `idPromocionPadre`) " +
+                    "VALUES ('" + idPromocion + "', '" + promocion.getNombre() + "', " + promocion.getPrecio() + " , '" + promocion.getDescripcion()  + "', " + promocion.getCantidadDisponible() + ", " + promocion.getEstadoStock().toInt() + ", " + idMenu + "," + promocion.getPromocionPadreID()+")");
+
+
+            ResultSet resultSet = statement2.executeQuery("SELECT * FROM PRODUCTOS WHERE IDPROMOCION IS NULL OR IDPROMOCION = 0");
+
+            while (resultSet.next()) {
+                int idProducto = resultSet.getInt("idProducto");
+
+                if(promocion.getProductos().stream().anyMatch(p -> p.getId() == idProducto))
+                    MySQLService.actualizarPadreIDProducto(idPromocion, idProducto);
+            }
+
+            resultSet = statement2.executeQuery("SELECT * FROM PROMOCIONES WHERE IDPROMOCIONPADRE IS NULL OR IDPROMOCIONPADRE = 0");
+
+            while (resultSet.next()) {
+                int idPromocionHija = resultSet.getInt("idPromocion");
+
+                if(promocion.getProductos().stream().anyMatch(p -> p.getId() == idPromocionHija))
+                    MySQLService.actualizarPadreIDPromocion(idPromocion, idPromocionHija);
+            }
+        } else {
+            throw new Exception("No es posible asignar un producto/promocion a multiples promociones");
+        }
 
         statement.close();
     }
@@ -131,19 +173,24 @@ public class MySQLService {
         statement.close();
     }
 
-    public static void actualizarStock(Integer montoStockActualizado, Integer stockState, Integer idProducto) throws SQLException {
+    public static void actualizarStock(Integer montoStockActualizado, Integer stockState, Integer idProducto) throws SQLException {//todo resolver problema
         Statement statement = connection1.createStatement();
         Statement statement2 = connection2.createStatement();
-        Statement statement3 = connection3.createStatement();
 
         statement.execute("UPDATE `cafetindb`.`productos` SET CANTIDADDISPONIBLE = " + montoStockActualizado + ", IDSTOCKSTATE = " + stockState + " WHERE IDPRODUCTO = " + idProducto);
 
         ResultSet resultSet = statement2.executeQuery("SELECT * FROM PRODUCTOS WHERE IDPRODUCTO = " + idProducto);
         resultSet.next();
-        int idPromocion = resultSet.getInt("idPromocion");
-        Promocion promocion= obtenerPromocion(idPromocion);
 
-        statement.execute("UPDATE `cafetindb`.`promociones` SET CANTIDADDISPONIBLE = " + promocion.getCantidadDisponible() + ", IDSTOCKSTATE = " + promocion.getEstadoStock().toInt() + " WHERE IDPROMOCION = " + resultSet.getInt("idPromocion"));
+        int idPromocion = resultSet.getInt("idPromocion");
+        Promocion promocion = obtenerPromocion(idPromocion);
+
+        statement.execute("UPDATE `cafetindb`.`promociones` SET CANTIDADDISPONIBLE = " + promocion.getCantidadDisponible() + ", IDSTOCKSTATE = " + promocion.getEstadoStock().toInt() + " WHERE IDPROMOCION = " + promocion.getId());
+
+        if(promocion.getPromocionPadreID() != null && promocion.getPromocionPadreID() != 0) {
+            Promocion promocionCompositora = MySQLService.obtenerPromocion(promocion.getPromocionPadreID());
+            statement.execute("UPDATE `cafetindb`.`promociones` SET CANTIDADDISPONIBLE = " + promocionCompositora.getCantidadDisponible() + ", IDSTOCKSTATE = " + promocionCompositora.getEstadoStock().toInt() + " WHERE IDPROMOCION = " + promocionCompositora.getId());
+        }
 
         statement.close();
     }
@@ -152,6 +199,22 @@ public class MySQLService {
         Statement statement = connection1.createStatement();
 
         statement.execute("UPDATE TIENDA SET MONTOTOTALRECAUDADO = " + montoActualizado + " WHERE IDTIENDA = " + idTienda);
+
+        statement.close();
+    }
+
+    public static void actualizarPadreIDProducto(Integer nuevoPadreId, Integer idProducto) throws SQLException {
+        Statement statement = connection1.createStatement();
+
+        statement.execute("UPDATE PRODUCTOS SET IDPROMOCION = " + nuevoPadreId + " WHERE IDPRODUCTO = " + idProducto);
+
+        statement.close();
+    }
+
+    public static void actualizarPadreIDPromocion(Integer nuevoPadreId, Integer idProducto) throws SQLException {
+        Statement statement = connection1.createStatement();
+
+        statement.execute("UPDATE PROMOCIONES SET IDPROMOCIONPADRE = " + nuevoPadreId + " WHERE IDPROMOCION = " + idProducto);
 
         statement.close();
     }
@@ -241,7 +304,6 @@ public class MySQLService {
         return productos;
     }
 
-
     public static Promocion obtenerPromocionBase(Integer idPromocion) throws SQLException {
         Promocion promocion = new Promocion();
 
@@ -266,12 +328,14 @@ public class MySQLService {
 
         Statement statement = connection1.createStatement();
 
-        ResultSet resultSet = statement.executeQuery("SELECT * FROM PROMOCIONES WHERE IDPROMOCION = " + idPromocion);
+        ResultSet resultSet = statement.executeQuery("SELECT * FROM `cafetindb`.`promociones` WHERE IDPROMOCION = " + idPromocion);
         resultSet.next();
 
         promocion.setId(resultSet.getInt("idPromocion"));
+        promocion.setPromocionPadreID(resultSet.getInt("idPromocionPadre"));
+
         Statement statement2 = connection2.createStatement();
-        resultSet = statement.executeQuery("SELECT * FROM PRODUCTOS WHERE IDPROMOCION = " + idPromocion);
+        resultSet = statement2.executeQuery("SELECT * FROM `cafetindb`.`productos` WHERE IDPROMOCION = " + idPromocion);
 
         while (resultSet.next()) {
             ProductoSimple productoSimple = MySQLService.obtenerProducto(resultSet.getInt("idProducto"));
@@ -291,10 +355,9 @@ public class MySQLService {
                 Promocion promocionHija = MySQLService.obtenerPromocionBase(resultSet.getInt("idPromocion"));
                 promocion.addProducto(promocionHija);
             }
-
-
         }
-                statement.close();
+
+        statement.close();
 
         return promocion;
     }
@@ -312,13 +375,13 @@ public class MySQLService {
         producto.setPrecio(resultSet.getDouble("precio"));
         producto.setDescripcion(resultSet.getString("descripcion"));
         producto.setCantidadDisponible(resultSet.getInt("cantidadDisponible"));
-
+        producto.setPromocionPadreID(resultSet.getInt("idPromocion"));
 
         resultSet = statement.executeQuery("SELECT * FROM STOCKSTATE WHERE IDSTOCKSTATE = " + resultSet.getInt("idStockState"));
         resultSet.next();
 
         producto.setEstadoStock(MySQLService.getStockState(resultSet.getString("nombre")));
-        producto.setPromocionPadreID(resultSet.getInt("idPromocion"));
+
 
         statement.close();
 
